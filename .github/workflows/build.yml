@@ -36,7 +36,7 @@ jobs:
         shell: pwsh
         run: |
           pip install aqtinstall
-          python -m aqt install-qt windows desktop 6.10.0 win64_msvc2022_64 -m qtbase -O .qt
+          python -m aqt install-qt windows desktop 6.10.0 win64_msvc2022_64 -O .qt
 
       - name: Configure
         shell: pwsh

@@ -20,7 +20,7 @@ if(NOT Qt6_FOUND)
         "-DCMAKE_PREFIX_PATH=\"C:/Qt/6.10.0/msvc2022_64\" "
         "-DSHADPS4_LAUNCHER_DIR=\"C:/path/to/shadPS4QtLauncher/folder\"\n"
         "Quick install: pip install aqtinstall && "
-        "aqt install-qt windows desktop 6.10.0 win64_msvc2022_64 -m qtbase -O .qt")
+        "aqt install-qt windows desktop 6.10.0 win64_msvc2022_64 -O .qt")
 endif()
 
 message(STATUS "Using Qt6 Widgets ${Qt6_VERSION} for menu hook")
