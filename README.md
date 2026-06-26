@@ -1,9 +1,9 @@
 # ShadPS4 PKG Plugin
 
-[![Build](https://github.com/TwoPlayz/ShadPS4Dump/actions/workflows/build.yml/badge.svg)](https://github.com/TwoPlayz/ShadPS4Dump/actions/workflows/build.yml)
-[![GitHub stars](https://img.shields.io/github/stars/TwoPlayz/ShadPS4Dump?style=flat-square)](https://github.com/TwoPlayz/ShadPS4Dump/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/TwoPlayz/ShadPS4Dump?style=flat-square)](https://github.com/TwoPlayz/ShadPS4Dump/network/members)
-[![GitHub issues](https://img.shields.io/github/issues/TwoPlayz/ShadPS4Dump?style=flat-square)](https://github.com/TwoPlayz/ShadPS4Dump/issues)
+[![Build](https://github.com/TwoPlayz/ShadPS4_PKG_Plugin/actions/workflows/build.yml/badge.svg)](https://github.com/TwoPlayz/ShadPS4_PKG_Plugin/actions/workflows/build.yml)
+[![GitHub stars](https://img.shields.io/github/stars/TwoPlayz/ShadPS4_PKG_Plugin?style=flat-square)](https://github.com/TwoPlayz/ShadPS4_PKG_Plugin/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/TwoPlayz/ShadPS4_PKG_Plugin?style=flat-square)](https://github.com/TwoPlayz/ShadPS4_PKG_Plugin/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/TwoPlayz/ShadPS4_PKG_Plugin?style=flat-square)](https://github.com/TwoPlayz/ShadPS4_PKG_Plugin/issues)
 
 Drop-in Windows DLL that restores **File → Install Packages (PKG)** to [shadPS4QtLauncher](https://github.com/shadps4-emu/shadps4-qtlauncher) without modifying the emulator.
 
@@ -57,8 +57,8 @@ cmake/            Crypto++ fetch + proxy verification helper
 ## Stats
 
 <p align="center">
-  <a href="https://github.com/TwoPlayz/ShadPS4Dump">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=TwoPlayz&repo=ShadPS4Dump&theme=tokyonight" alt="ShadPS4Dump repo card" />
+  <a href="https://github.com/TwoPlayz/ShadPS4_PKG_Plugin">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=TwoPlayz&repo=ShadPS4_PKG_Plugin&theme=tokyonight" alt="ShadPS4_PKG_Plugin repo card" />
   </a>
 </p>
 

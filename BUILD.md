@@ -20,7 +20,7 @@ python -m aqt install-qt windows desktop 6.10.0 win64_msvc2022_64 -O .qt
 ## MSVC (recommended)
 
 ```powershell
-cd ShadPS4Dump
+cd ShadPS4_PKG_Plugin
 cmake -B build -G "Visual Studio 17 2022" -A x64 `
   -DCMAKE_PREFIX_PATH="$PWD/.qt/6.10.0/msvc2022_64" `
   -DSHADPS4_LAUNCHER_DIR="C:\path\to\shadPS4QtLauncher\folder" `
