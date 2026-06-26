@@ -64,7 +64,7 @@ cmake/            Crypto++ fetch + proxy verification helper
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=TwoPlayz&show_icons=true&theme=tokyonight" alt="GitHub stats" />
-  <img src="https://github-readme-streak-stats.demolab.com/?user=TwoPlayz&theme=tokyonight" alt="GitHub streak" />
+  <img src="https://streak-stats.demolab.com/?user=TwoPlayz&theme=tokyonight" alt="GitHub streak" />
 </p>
 
 <p align="center">
