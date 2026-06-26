@@ -6,6 +6,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/TwoPlayz/ShadPS4_PKG_Plugin?style=flat-square)](https://github.com/TwoPlayz/ShadPS4_PKG_Plugin/issues)
 
 Drop-in Windows DLL that restores **File → Install Packages (PKG)** to [shadPS4QtLauncher](https://github.com/shadps4-emu/shadps4-qtlauncher) without modifying the emulator.
+Adds Orbis patch install directly in ShadPS4.
 
 ## Quick start
 
