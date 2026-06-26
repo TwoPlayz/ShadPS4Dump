@@ -1,0 +1,8 @@
+/build/
+/.qt/
+/_vendor_shadps4plus/
+/.vs/
+*.user
+*.suo
+CMakeCache.txt
+CMakeFiles/
