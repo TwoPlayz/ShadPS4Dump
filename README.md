@@ -33,9 +33,7 @@ Re-verify after major QtLauncher updates (menu strings, import table).
 
 ## Limitations
 
-- **Fake-signed / homebrew PKGs only** — same constraint as the removed upstream feature. Retail PSN PKGs will not decrypt.
 - **ORBISPatches downloads** — uses a hidden browser step for ORBISPatches reCAPTCHA, then downloads **piece PKGs only** (delta PKGs are ignored). **Microsoft Edge WebView2 Runtime** must be installed.
-- **QtLauncher only** — does not add a menu to `shadps4.exe` CLI / Big Picture (see plan Phase 2).
 - **Proxy DLL** — antivirus may flag DLL hijacking patterns; the proxy only forwards `version.dll` calls.
 - **Fragility** — relies on native Qt menu bar and stable menu labels (`File`, `Exit`, `Refresh Game List`).
 
