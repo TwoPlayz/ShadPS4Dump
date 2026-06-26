@@ -1,5 +1,10 @@
 # ShadPS4 PKG Plugin
 
+[![Build](https://github.com/TwoPlayz/ShadPS4Dump/actions/workflows/build.yml/badge.svg)](https://github.com/TwoPlayz/ShadPS4Dump/actions/workflows/build.yml)
+[![GitHub stars](https://img.shields.io/github/stars/TwoPlayz/ShadPS4Dump?style=flat-square)](https://github.com/TwoPlayz/ShadPS4Dump/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/TwoPlayz/ShadPS4Dump?style=flat-square)](https://github.com/TwoPlayz/ShadPS4Dump/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/TwoPlayz/ShadPS4Dump?style=flat-square)](https://github.com/TwoPlayz/ShadPS4Dump/issues)
+
 Drop-in Windows DLL that restores **File → Install Packages (PKG)** to [shadPS4QtLauncher](https://github.com/shadps4-emu/shadps4-qtlauncher) without modifying the emulator.
 
 ## Quick start
@@ -48,6 +53,23 @@ src/orbispatches/ ORBISPatches API client + patch browser + WebView2 downloads
 src/config/       config.json / config.toml reader
 cmake/            Crypto++ fetch + proxy verification helper
 ```
+
+## Stats
+
+<p align="center">
+  <a href="https://github.com/TwoPlayz/ShadPS4Dump">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=TwoPlayz&repo=ShadPS4Dump&theme=tokyonight" alt="ShadPS4Dump repo card" />
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=TwoPlayz&show_icons=true&theme=tokyonight" alt="GitHub stats" />
+  <img src="https://github-readme-streak-stats.demolab.com/?user=TwoPlayz&theme=tokyonight" alt="GitHub streak" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=TwoPlayz&layout=compact&theme=tokyonight" alt="Top languages" />
+</p>
 
 ## License
 
