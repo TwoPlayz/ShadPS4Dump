@@ -1,0 +1,10 @@
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\_DEPS\CRYPTOPP-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/cryptopp-subbuild -BC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/cryptopp-subbuild --check-stamp-file C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/cryptopp-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

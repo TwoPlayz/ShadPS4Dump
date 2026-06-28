@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\nlohmann_json-subbuild\CMakeFiles\cb9029c49132cde1fb48d6f824373a00\nlohmann_json-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\nlohmann_json-subbuild\CMakeFiles\cb9029c49132cde1fb48d6f824373a00\nlohmann_json-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\nlohmann_json-subbuild\CMakeFiles\cb9029c49132cde1fb48d6f824373a00\nlohmann_json-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\nlohmann_json-subbuild\CMakeFiles\cb9029c49132cde1fb48d6f824373a00\nlohmann_json-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\nlohmann_json-subbuild\CMakeFiles\cb9029c49132cde1fb48d6f824373a00\nlohmann_json-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\nlohmann_json-subbuild\CMakeFiles\cb9029c49132cde1fb48d6f824373a00\nlohmann_json-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\nlohmann_json-subbuild\CMakeFiles\cb9029c49132cde1fb48d6f824373a00\nlohmann_json-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\nlohmann_json-subbuild\CMakeFiles\cb9029c49132cde1fb48d6f824373a00\nlohmann_json-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\nlohmann_json-subbuild\CMakeFiles\e4fe6c639d54ec9b0e54420ee63bc651\nlohmann_json-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\nlohmann_json-subbuild\CMakeFiles\3b6a1f3c8eb934146ea10525145e078f\nlohmann_json-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\nlohmann_json-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\nlohmann_json-subbuild\CMakeFiles\nlohmann_json-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{5592371F-FB4B-3D1B-951C-4571751F7D8F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\CMakeFiles\43f129a397e84ffcef71530b5e36d8d5\NightlyMemoryCheck.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-build\CMakeFiles\NightlyMemoryCheck" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{A918F6F4-26B5-38A0-BCF5-169443DB9497}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

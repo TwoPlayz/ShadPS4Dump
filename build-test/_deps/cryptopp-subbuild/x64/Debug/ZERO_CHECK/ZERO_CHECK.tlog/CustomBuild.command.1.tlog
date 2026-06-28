@@ -1,0 +1,10 @@
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\_DEPS\CRYPTOPP-SUBBUILD\CMAKEFILES\F48D54954B10FB27BF8C2602D18FDB2F\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/cryptopp-subbuild -BC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/cryptopp-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/cryptopp-subbuild/cryptopp-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -1,7 +1,9 @@
 // SPDX-FileCopyrightText: Copyright 2024 shadPS4 Emulator Project
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+#include <algorithm>
 #include <iostream>
+#include <string_view>
 #include <zlib.h>
 #include "common/io_file.h"
 #include "core/file_format/pkg.h"
@@ -31,18 +33,41 @@ static void DecompressPFSC(std::span<char> compressed_data, std::span<char> deco
 
 u32 GetPFSCOffset(std::span<const u8> pfs_image) {
     static constexpr u32 PfscMagic = 0x43534650;
-    u32 value;
-    for (u32 i = 0x20000; i < pfs_image.size(); i += 0x10000) {
-        std::memcpy(&value, &pfs_image[i], sizeof(u32));
-        if (value == PfscMagic)
-            return i;
+    if (pfs_image.size() < sizeof(u32)) {
+        return static_cast<u32>(-1);
     }
-    return -1;
+
+    u32 value = 0;
+    for (u32 i = 0; i + sizeof(u32) <= pfs_image.size(); i += 0x10) {
+        std::memcpy(&value, &pfs_image[i], sizeof(u32));
+        if (value == PfscMagic) {
+            return i;
+        }
+    }
+    return static_cast<u32>(-1);
 }
 
 PKG::PKG() = default;
 
 PKG::~PKG() = default;
+
+void PKG::SetPasscode(std::string passcode) {
+    passcode_ = std::move(passcode);
+}
+
+namespace {
+
+std::string ReadContentId(const PKGHeader& header) {
+    return std::string(reinterpret_cast<const char*>(header.pkg_content_id),
+                       strnlen(reinterpret_cast<const char*>(header.pkg_content_id),
+                               sizeof(header.pkg_content_id)));
+}
+
+} // namespace
+
+void PKG::SetFileProgressCallback(FileProgressCallback callback) {
+    file_progress_callback_ = std::move(callback);
+}
 
 bool PKG::Open(const std::filesystem::path& filepath, std::string& failreason) {
     Common::FS::IOFile file(filepath, Common::FS::FileAccessMode::Read);
@@ -52,8 +77,10 @@ bool PKG::Open(const std::filesystem::path& filepath, std::string& failreason) {
     pkgSize = file.GetSize();
 
     file.Read(pkgheader);
-    if (pkgheader.magic != 0x7F434E54)
+    if (pkgheader.magic != 0x7F434E54) {
+        failreason = "File is not a valid PKG. The download may be incomplete or corrupt.";
         return false;
+    }
 
     for (const auto& flag : flagNames) {
         if (isFlagSet(pkgheader.pkg_content_flags, flag.first)) {
@@ -113,8 +140,10 @@ bool PKG::Extract(const std::filesystem::path& filepath, const std::filesystem::
     pkgSize = file.GetSize();
     file.ReadRaw<u8>(&pkgheader, sizeof(PKGHeader));
 
-    if (pkgheader.magic != 0x7F434E54)
+    if (pkgheader.magic != 0x7F434E54) {
+        failreason = "File is not a valid PKG. The download may be incomplete or corrupt.";
         return false;
+    }
 
     if (pkgheader.pkg_size > pkgSize) {
         failreason = "PKG file size is different";
@@ -130,7 +159,8 @@ bool PKG::Extract(const std::filesystem::path& filepath, const std::filesystem::
 
     std::array<u8, 64> concatenated_ivkey_dk3;
     std::array<u8, 32> seed_digest;
-    std::array<std::array<u8, 32>, 7> digest1;
+    std::array<std::array<u8, 32>, 7> digest1{};
+    bool entry_keys_read = false;
     std::array<std::array<u8, 256>, 7> key1;
     std::array<u8, 256> imgkeydata;
 
@@ -189,7 +219,8 @@ bool PKG::Extract(const std::filesystem::path& filepath, const std::filesystem::
                 file.Read(key1[i]);
             }
 
-            PKG::crypto.RSA2048Decrypt(dk3_, key1[3], true); // decrypt DK3
+            crypto.RSA2048Decrypt(dk3_, key1[3], true); // decrypt DK3
+            entry_keys_read = true;
         } else if (entry.id == 0x20) {                       // IMAGE_KEY, seek; IV_KEY
             file.Seek(entry.offset);
             file.Read(imgkeydata);
@@ -198,11 +229,11 @@ bool PKG::Extract(const std::filesystem::path& filepath, const std::filesystem::
             std::memcpy(concatenated_ivkey_dk3.data(), &entry, sizeof(entry));
             std::memcpy(concatenated_ivkey_dk3.data() + sizeof(entry), dk3_.data(), sizeof(dk3_));
 
-            PKG::crypto.ivKeyHASH256(concatenated_ivkey_dk3, ivKey); // ivkey_
+            crypto.ivKeyHASH256(concatenated_ivkey_dk3, ivKey); // ivkey_
             // imgkey_ to use for last step to get ekpfs
-            PKG::crypto.aesCbcCfb128Decrypt(ivKey, imgkeydata, imgKey);
+            crypto.aesCbcCfb128Decrypt(ivKey, imgkeydata, imgKey);
             // ekpfs key to get data and tweak keys.
-            PKG::crypto.RSA2048Decrypt(ekpfsKey, imgKey, false);
+            crypto.RSA2048Decrypt(ekpfsKey, imgKey, false);
         } else if (entry.id == 0x80) {
             // GENERAL_DIGESTS, seek;
             // file.Seek(entry.offset, fsSeekSet);
@@ -241,8 +272,8 @@ bool PKG::Extract(const std::filesystem::path& filepath, const std::filesystem::
             std::array<u8, 64> concatenated_ivkey_dk3_;
             std::memcpy(concatenated_ivkey_dk3_.data(), &entry, sizeof(entry));
             std::memcpy(concatenated_ivkey_dk3_.data() + sizeof(entry), dk3_.data(), sizeof(dk3_));
-            PKG::crypto.ivKeyHASH256(concatenated_ivkey_dk3_, ivKey);
-            PKG::crypto.aesCbcCfb128DecryptEntry(ivKey, cipherNp, decNp);
+            crypto.ivKeyHASH256(concatenated_ivkey_dk3_, ivKey);
+            crypto.aesCbcCfb128DecryptEntry(ivKey, cipherNp, decNp);
 
             decNp.resize(rsize);
             Common::FS::IOFile out(extract_path / "sce_sys" / name,
@@ -262,11 +293,40 @@ bool PKG::Extract(const std::filesystem::path& filepath, const std::filesystem::
     }
     file.Read(seed);
 
+    if (!entry_keys_read) {
+        failreason = "Failed to read PKG entry keys.";
+        return false;
+    }
+
+    if (!crypto.CheckDerivedKeyDigest(ekpfsKey, digest1[1])) {
+        const auto content_id = ReadContentId(pkgheader);
+        if (!passcode_.empty()) {
+            const auto derived = crypto.ComputeDerivedKey(content_id, passcode_, 1);
+            if (crypto.CheckDerivedKeyDigest(derived, digest1[1])) {
+                ekpfsKey = derived;
+            }
+        }
+        if (!crypto.CheckDerivedKeyDigest(ekpfsKey, digest1[1])) {
+            failreason = "RETAIL_PKG_PASSCODE_REQUIRED";
+            return false;
+        }
+    }
+
     // Get data and tweak keys.
-    PKG::crypto.PfsGenCryptoKey(ekpfsKey, seed, dataKey, tweakKey);
-    const u32 length = pkgheader.pfs_cache_size * 0x2; // Seems to be ok.
+    crypto.PfsGenCryptoKey(ekpfsKey, seed, dataKey, tweakKey);
+    const u64 available_pfs =
+        std::min<u64>(pkgSize - static_cast<u64>(pkgheader.pfs_image_offset), pkgheader.pfs_image_size);
+    u64 metadata_length = static_cast<u64>(pkgheader.pfs_cache_size) * 2;
+    // Some PKGs (including certain homebrew builds) need more than the cache window for PFSC
+    // metadata. Cap the read to the available PFS image size.
+    metadata_length = std::max(metadata_length, std::min<u64>(available_pfs, 0x1000000ULL));
+    if (metadata_length > available_pfs) {
+        metadata_length = available_pfs;
+    }
+    const u32 length = static_cast<u32>(metadata_length);
 
     int num_blocks = 0;
+    u64 pfsc_content_size = 0;
     std::vector<u8> pfsc(length);
     if (length != 0) {
         // Read encrypted pfs_image
@@ -276,17 +336,44 @@ bool PKG::Extract(const std::filesystem::path& filepath, const std::filesystem::
         file.Close();
         // Decrypt the pfs_image.
         std::vector<u8> pfs_decrypted(length);
-        PKG::crypto.decryptPFS(dataKey, tweakKey, pfs_encrypted, pfs_decrypted, 0);
+        crypto.decryptPFS(dataKey, tweakKey, pfs_encrypted, pfs_decrypted, 0);
 
         // Retrieve PFSC from decrypted pfs_image.
         pfsc_offset = GetPFSCOffset(pfs_decrypted);
-        std::memcpy(pfsc.data(), pfs_decrypted.data() + pfsc_offset, length - pfsc_offset);
+        if (pfsc_offset == static_cast<u32>(-1) || pfsc_offset >= length) {
+            failreason =
+                "Could not read PKG file contents. The download may be incomplete or corrupt.";
+            return false;
+        }
+        const u64 pfsc_copy_size = length - pfsc_offset;
+        pfsc_content_size = pfsc_copy_size;
+        if (pfsc_copy_size > pfsc.size()) {
+            failreason = "PFSC image exceeds allocated buffer";
+            return false;
+        }
+        std::memcpy(pfsc.data(), pfs_decrypted.data() + pfsc_offset, pfsc_copy_size);
 
         PFSCHdr pfsChdr;
         std::memcpy(&pfsChdr, pfsc.data(), sizeof(pfsChdr));
 
-        num_blocks = (int)(pfsChdr.data_length / pfsChdr.block_sz2);
+        if (pfsChdr.block_sz2 == 0 || pfsChdr.data_length == 0) {
+            failreason = "Invalid PFSC block metadata";
+            return false;
+        }
+
+        num_blocks = static_cast<int>(pfsChdr.data_length / pfsChdr.block_sz2);
+        if (num_blocks <= 0 || num_blocks > 0x100000) {
+            failreason = "Invalid PFSC block count";
+            return false;
+        }
         sectorMap.resize(num_blocks + 1); // 8 bytes, need extra 1 to get the last offset.
+
+        const u64 sector_map_end =
+            static_cast<u64>(pfsChdr.block_offsets) + static_cast<u64>(num_blocks + 1) * 8;
+        if (sector_map_end > pfsc_copy_size) {
+            failreason = "PFSC sector map exceeds image bounds";
+            return false;
+        }
 
         for (int i = 0; i < num_blocks + 1; i++) {
             std::memcpy(&sectorMap[i], pfsc.data() + pfsChdr.block_offsets + i * 8, 8);
@@ -300,11 +387,17 @@ bool PKG::Extract(const std::filesystem::path& filepath, const std::filesystem::
     bool uroot_reached = false;
     std::vector<char> compressedData;
     std::vector<char> decompressedData(0x10000);
+    current_dir = extract_path;
 
     // Get iNdoes and Dirents.
     for (int i = 0; i < num_blocks; i++) {
         const u64 sectorOffset = sectorMap[i];
         const u64 sectorSize = sectorMap[i + 1] - sectorOffset;
+
+        if (sectorSize > 0x10000 || sectorOffset + sectorSize > pfsc_content_size) {
+            failreason = "PFSC sector block exceeds image bounds";
+            return false;
+        }
 
         compressedData.resize(sectorSize);
         std::memcpy(compressedData.data(), pfsc.data() + sectorOffset, sectorSize);
@@ -342,9 +435,17 @@ bool PKG::Extract(const std::filesystem::path& filepath, const std::filesystem::
         }
 
         if (uroot_reached) {
-            for (int i = 0; i < 0x10000; i += ent_size) {
+            for (int u = 0; u < 0x10000; u += ent_size) {
                 Dirent dirent;
-                std::memcpy(&dirent, &decompressedData[i], sizeof(dirent));
+                std::memcpy(&dirent, &decompressedData[u], sizeof(dirent));
+                if (dirent.entsize == 0) {
+                    if (dirent.ino == 0) {
+                        uroot_reached = false;
+                        break;
+                    }
+                    failreason = "Invalid PFSC directory entry size";
+                    return false;
+                }
                 ent_size = dirent.entsize;
                 if (dirent.ino != 0) {
                     ndinode_counter++;
@@ -385,6 +486,10 @@ bool PKG::Extract(const std::filesystem::path& filepath, const std::filesystem::
                     break;
                 }
 
+                if (dirent.entsize == 0) {
+                    break;
+                }
+
                 ent_size = dirent.entsize;
                 auto& table = fsTable.emplace_back();
                 table.name = std::string(dirent.name, dirent.namelen);
@@ -419,12 +524,22 @@ void PKG::ExtractFiles(const int index) {
     std::string inode_name = fsTable[index].name;
 
     if (inode_type == PFS_FILE) {
+        if (inode_number < 0 || static_cast<size_t>(inode_number) >= iNodeBuf.size()) {
+            return;
+        }
+
+        auto output_path = extractPaths[inode_number];
+        if (output_path.is_relative()) {
+            output_path = extract_path / output_path;
+        }
+        std::filesystem::create_directories(output_path.parent_path());
+
         int sector_loc = iNodeBuf[inode_number].loc;
         int nblocks = iNodeBuf[inode_number].Blocks;
         int bsize = iNodeBuf[inode_number].Size;
 
         Common::FS::IOFile inflated;
-        inflated.Open(extractPaths[inode_number], Common::FS::FileAccessMode::Write);
+        inflated.Open(output_path, Common::FS::FileAccessMode::Write);
 
         Common::FS::IOFile pkgFile; // Open the file for each iteration to avoid conflict.
         pkgFile.Open(pkgpath, Common::FS::FileAccessMode::Read);
@@ -438,7 +553,9 @@ void PKG::ExtractFiles(const int index) {
         std::vector<u8> pfs_decrypted(pfsc_buf_size);
 
         for (int j = 0; j < nblocks; j++) {
-			std::cout << "\r" << ((j + 1) * 100) / nblocks << "%  ";
+            if (file_progress_callback_ && nblocks > 0) {
+                file_progress_callback_(index, ((j + 1) * 100) / nblocks, inode_name);
+            }
             u64 sectorOffset =
                 sectorMap[sector_loc + j]; // offset into PFSC_image and not pfs_image.
             u64 sectorSize = sectorMap[sector_loc + j + 1] -
@@ -453,7 +570,7 @@ void PKG::ExtractFiles(const int index) {
             pkgFile.Seek(fileOffset - previousData);
             pkgFile.Read(pfsc);
 
-            PKG::crypto.decryptPFS(dataKey, tweakKey, pfsc, pfs_decrypted, currentSector1);
+            crypto.decryptPFS(dataKey, tweakKey, pfsc, pfs_decrypted, currentSector1);
 
             compressedData.resize(sectorSize);
             std::memcpy(compressedData.data(), pfs_decrypted.data() + previousData, sectorSize);
@@ -472,6 +589,9 @@ void PKG::ExtractFiles(const int index) {
                 const u32 write_size = decompressedData.size() - (size_decompressed - bsize);
                 inflated.WriteRaw<u8>(decompressedData.data(), write_size);
             }
+        }
+        if (file_progress_callback_) {
+            file_progress_callback_(index, 100, inode_name);
         }
         pkgFile.Close();
         inflated.Close();

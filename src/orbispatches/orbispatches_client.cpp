@@ -1,4 +1,5 @@
 #include "orbispatches/orbispatches_client.h"
+#include "orbispatches/patch_webview_download.h"
 
 #include <nlohmann/json.hpp>
 #include <cstdio>
@@ -234,133 +235,17 @@ std::vector<PatchEntry> Client::LoadPatches(const std::string& titleid, const st
 }
 
 bool Client::DownloadUrl(const std::string& url, const std::filesystem::path& destination,
-                         const DownloadProgressFn& progress, std::string& error) {
-    const std::wstring wide_url = Utf8ToWide(url);
-    URL_COMPONENTS parts{};
-    parts.dwStructSize = sizeof(parts);
-
-    wchar_t host[256] = {};
-    wchar_t path[2048] = {};
-    parts.lpszHostName = host;
-    parts.dwHostNameLength = static_cast<DWORD>(std::size(host));
-    parts.lpszUrlPath = path;
-    parts.dwUrlPathLength = static_cast<DWORD>(std::size(path));
-
-    if (!WinHttpCrackUrl(wide_url.c_str(), static_cast<DWORD>(wide_url.size()), 0, &parts)) {
-        error = "Invalid download URL";
-        return false;
+                         const DownloadProgressFn& progress, std::string& error,
+                         CancelCallback should_cancel, HWND parent_hwnd,
+                         const PumpEventsFn& pump_events) {
+    if (DownloadUrlViaWebView(url, destination, progress, error, should_cancel, parent_hwnd,
+                              pump_events)) {
+        return true;
     }
-
-    const bool secure = parts.nScheme == INTERNET_SCHEME_HTTPS;
-    const INTERNET_PORT port = parts.nPort;
-
-    HINTERNET session =
-        WinHttpOpen(L"ShadPS4PkgPlugin/1.0", WINHTTP_ACCESS_TYPE_DEFAULT_PROXY,
-                    WINHTTP_NO_PROXY_NAME, WINHTTP_NO_PROXY_BYPASS, 0);
-    if (!session) {
-        error = "WinHttpOpen failed";
-        return false;
+    if (error.empty()) {
+        error = "Failed to download patch from ORBISPatches";
     }
-
-    HINTERNET connect = WinHttpConnect(session, host, port, 0);
-    if (!connect) {
-        WinHttpCloseHandle(session);
-        error = "WinHttpConnect failed";
-        return false;
-    }
-
-    DWORD flags = secure ? WINHTTP_FLAG_SECURE : 0;
-    HINTERNET request =
-        WinHttpOpenRequest(connect, L"GET", path, nullptr, WINHTTP_NO_REFERER,
-                           WINHTTP_DEFAULT_ACCEPT_TYPES, flags);
-    if (!request) {
-        WinHttpCloseHandle(connect);
-        WinHttpCloseHandle(session);
-        error = "WinHttpOpenRequest failed";
-        return false;
-    }
-
-    if (secure) {
-        DWORD security_flags =
-            SECURITY_FLAG_IGNORE_UNKNOWN_CA | SECURITY_FLAG_IGNORE_CERT_WRONG_USAGE |
-            SECURITY_FLAG_IGNORE_CERT_CN_INVALID | SECURITY_FLAG_IGNORE_CERT_DATE_INVALID;
-        WinHttpSetOption(request, WINHTTP_OPTION_SECURITY_FLAGS, &security_flags,
-                         sizeof(security_flags));
-    }
-
-    if (!WinHttpSendRequest(request, WINHTTP_NO_ADDITIONAL_HEADERS, 0, WINHTTP_NO_REQUEST_DATA, 0,
-                            0, 0) ||
-        !WinHttpReceiveResponse(request, nullptr)) {
-        WinHttpCloseHandle(request);
-        WinHttpCloseHandle(connect);
-        WinHttpCloseHandle(session);
-        error = "Download request failed";
-        return false;
-    }
-
-    DWORD status_code = 0;
-    DWORD status_size = sizeof(status_code);
-    WinHttpQueryHeaders(request, WINHTTP_QUERY_STATUS_CODE | WINHTTP_QUERY_FLAG_NUMBER,
-                        WINHTTP_HEADER_NAME_BY_INDEX, &status_code, &status_size,
-                        WINHTTP_NO_HEADER_INDEX);
-    if (status_code != 200) {
-        WinHttpCloseHandle(request);
-        WinHttpCloseHandle(connect);
-        WinHttpCloseHandle(session);
-        error = "Download failed with HTTP status " + std::to_string(status_code);
-        return false;
-    }
-
-    int64_t total_bytes = 0;
-    wchar_t length_buffer[64] = {};
-    DWORD length_size = sizeof(length_buffer);
-    if (WinHttpQueryHeaders(request, WINHTTP_QUERY_CONTENT_LENGTH, WINHTTP_HEADER_NAME_BY_INDEX,
-                            length_buffer, &length_size, WINHTTP_NO_HEADER_INDEX)) {
-        total_bytes = _wtoi64(length_buffer);
-    }
-
-    std::filesystem::create_directories(destination.parent_path());
-    FILE* file = nullptr;
-    if (_wfopen_s(&file, destination.c_str(), L"wb") != 0 || !file) {
-        WinHttpCloseHandle(request);
-        WinHttpCloseHandle(connect);
-        WinHttpCloseHandle(session);
-        error = "Could not create download file";
-        return false;
-    }
-
-    int64_t received = 0;
-    DWORD available = 0;
-    while (WinHttpQueryDataAvailable(request, &available) && available > 0) {
-        std::vector<char> buffer(available);
-        DWORD read = 0;
-        if (!WinHttpReadData(request, buffer.data(), available, &read) || read == 0) {
-            break;
-        }
-        if (fwrite(buffer.data(), 1, read, file) != read) {
-            fclose(file);
-            WinHttpCloseHandle(request);
-            WinHttpCloseHandle(connect);
-            WinHttpCloseHandle(session);
-            error = "Failed while writing download file";
-            return false;
-        }
-        received += read;
-        if (progress) {
-            progress(received, total_bytes);
-        }
-    }
-
-    fclose(file);
-    WinHttpCloseHandle(request);
-    WinHttpCloseHandle(connect);
-    WinHttpCloseHandle(session);
-
-    if (received == 0) {
-        error = "Downloaded file is empty";
-        return false;
-    }
-    return true;
+    return false;
 }
 
 } // namespace OrbisPatches

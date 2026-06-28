@@ -1,0 +1,10 @@
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\_DEPS\ZLIB-SUBBUILD\CMAKEFILES\4A5780A5A769E05B3E1C16D808B9FA02\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/zlib-subbuild -BC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/zlib-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/zlib-subbuild/zlib-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

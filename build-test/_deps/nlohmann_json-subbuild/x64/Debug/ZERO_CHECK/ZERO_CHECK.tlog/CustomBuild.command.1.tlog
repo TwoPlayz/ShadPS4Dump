@@ -1,0 +1,10 @@
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\_DEPS\NLOHMANN_JSON-SUBBUILD\CMAKEFILES\3B6A1F3C8EB934146EA10525145E078F\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/nlohmann_json-subbuild -BC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/nlohmann_json-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/nlohmann_json-subbuild/nlohmann_json-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

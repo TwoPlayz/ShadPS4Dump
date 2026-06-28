@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-subbuild\CMakeFiles\85549d3c15a95b2656a9f34654f96901\zlib-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-subbuild\CMakeFiles\85549d3c15a95b2656a9f34654f96901\zlib-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-subbuild\CMakeFiles\85549d3c15a95b2656a9f34654f96901\zlib-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-subbuild\CMakeFiles\85549d3c15a95b2656a9f34654f96901\zlib-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-subbuild\CMakeFiles\85549d3c15a95b2656a9f34654f96901\zlib-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-subbuild\CMakeFiles\85549d3c15a95b2656a9f34654f96901\zlib-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-subbuild\CMakeFiles\85549d3c15a95b2656a9f34654f96901\zlib-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-subbuild\CMakeFiles\85549d3c15a95b2656a9f34654f96901\zlib-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-subbuild\CMakeFiles\8737593b1e3ba0263b65fa567fe66221\zlib-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-subbuild\CMakeFiles\4a5780a5a769e05b3e1c16d808b9fa02\zlib-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-subbuild\CMakeFiles\zlib-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{6C85184D-30AF-343D-91AF-104D57F46989}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

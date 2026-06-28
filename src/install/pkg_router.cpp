@@ -1,16 +1,97 @@
 #include "install/pkg_router.h"
 
+#include <QApplication>
+#include <QCoreApplication>
+#include <QMainWindow>
+#include <QMessageBox>
+#include <QWidget>
 #include <filesystem>
 #include <sstream>
 #include <windows.h>
 
 #include "common/path_util.h"
 #include "common/string_util.h"
+#include "config/shad_config.h"
 #include "core/file_format/pkg.h"
 #include "core/file_format/psf.h"
 #include "core/loader.h"
+#include "install/pkg_merge.h"
 
 namespace PkgRouter {
+
+namespace {
+
+QWidget* FindLauncherParentWidget(HWND parent_hwnd) {
+    if (QApplication* app = qobject_cast<QApplication*>(QCoreApplication::instance())) {
+        for (QWidget* widget : app->topLevelWidgets()) {
+            if (qobject_cast<QMainWindow*>(widget)) {
+                return widget;
+            }
+        }
+    }
+    if (parent_hwnd) {
+        if (QWidget* widget = QWidget::find(reinterpret_cast<WId>(parent_hwnd))) {
+            return widget;
+        }
+    }
+    return nullptr;
+}
+
+void ApplyLauncherStyle(QMessageBox& box, QWidget* parent) {
+    if (!parent) {
+        return;
+    }
+    box.setStyle(parent->style());
+    box.setPalette(parent->palette());
+    box.setFont(parent->font());
+    if (!parent->windowIcon().isNull()) {
+        box.setWindowIcon(parent->windowIcon());
+    }
+}
+
+void ShowBaseGameRequired(HWND parent, bool is_dlc, const std::string& title_id) {
+    QWidget* launcher = FindLauncherParentWidget(parent);
+    QMessageBox box(launcher);
+    ApplyLauncherStyle(box, launcher);
+    box.setIcon(QMessageBox::Warning);
+    box.setWindowTitle(QStringLiteral("Base Game Required"));
+    box.setStandardButtons(QMessageBox::Ok);
+    box.setDefaultButton(QMessageBox::Ok);
+
+    const QString title = title_id.empty()
+                              ? QStringLiteral("The base game for this PKG is not installed.")
+                              : QStringLiteral("The base game for %1 is not installed.")
+                                    .arg(QString::fromStdString(title_id));
+
+    if (is_dlc) {
+        box.setText(title);
+        box.setInformativeText(
+            QStringLiteral("Install the base game first, then install this DLC via "
+                           "File → Install Packages (PKG) → Game PKG."));
+    } else {
+        box.setText(title);
+        box.setInformativeText(
+            QStringLiteral("Install the base game first, then install this patch via "
+                           "File → Install Packages (PKG) → ORBIS Update."));
+    }
+
+    box.exec();
+}
+
+} // namespace
+
+void ShowDeltaPkgNotSupported(HWND parent) {
+    QWidget* launcher = FindLauncherParentWidget(parent);
+    QMessageBox box(launcher);
+    ApplyLauncherStyle(box, launcher);
+    box.setIcon(QMessageBox::Warning);
+    box.setWindowTitle(QStringLiteral("Delta PKG Not Supported"));
+    box.setText(QStringLiteral("This file is a Delta PKG."));
+    box.setInformativeText(QString::fromUtf8(PkgMerge::StandaloneDeltaPkgMessage()));
+    box.setStandardButtons(QMessageBox::Ok);
+    box.setDefaultButton(QMessageBox::Ok);
+    box.exec();
+}
 
 namespace {
 
@@ -40,6 +121,11 @@ OverwriteDecision ResolveInstallPath(const std::filesystem::path& pkg_file,
     if (Loader::DetectFileType(pkg_file) != Loader::FileTypes::Pkg) {
         MessageBoxW(parent, L"The selected file does not appear to be a valid PKG.",
                     L"PKG Error", MB_OK | MB_ICONERROR);
+        return OverwriteDecision::Cancel;
+    }
+
+    if (PkgMerge::IsStandaloneDeltaPkg(pkg_file)) {
+        ShowDeltaPkgNotSupported(parent);
         return OverwriteDecision::Cancel;
     }
 
@@ -99,21 +185,9 @@ OverwriteDecision ResolveInstallPath(const std::filesystem::path& pkg_file,
     out.extract_path = game_update_path;
 
     if (!std::filesystem::exists(out.extract_path)) {
-        if (out.is_patch || out.is_dlc) {
-            const wchar_t* msg = out.is_dlc
-                                     ? L"DLC PKG detected, but the base game does not appear to be "
-                                       L"installed.\n\n"
-                                       L"You can install the base game first, then install this PKG "
-                                       L"later via File -> Install Packages (PKG).\n\n"
-                                       L"Continue installing now anyway?"
-                                     : L"Patch PKG detected, but the base game does not appear to be "
-                                       L"installed.\n\n"
-                                       L"You can install the base game first, then install this patch "
-                                       L"later via File -> Install Packages (PKG).\n\n"
-                                       L"Continue installing the patch now anyway?";
-            if (ShowYesNo(parent, L"PKG Extraction", msg) != IDYES) {
-                return OverwriteDecision::Cancel;
-            }
+        if ((out.is_patch || out.is_dlc) && !IsBaseGameInstalled(out.title_id)) {
+            ShowBaseGameRequired(parent, out.is_dlc, out.title_id);
+            return OverwriteDecision::Cancel;
         }
         return OverwriteDecision::Proceed;
     }
@@ -168,6 +242,20 @@ OverwriteDecision ResolveInstallPath(const std::filesystem::path& pkg_file,
     }
 
     return OverwriteDecision::Proceed;
+}
+
+bool IsBaseGameInstalled(const std::string& title_id) {
+    if (title_id.empty()) {
+        return false;
+    }
+
+    const auto paths = ShadConfig::LoadInstallPaths();
+    if (!paths) {
+        return false;
+    }
+
+    constexpr int max_depth = 5;
+    return Common::FS::FindGameByID(paths->games_dir, title_id, max_depth).has_value();
 }
 
 } // namespace PkgRouter

@@ -1,0 +1,13 @@
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\tools\extract_pkg.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg.dir\Release\extract_pkg.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\core\loader.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg.dir\Release\loader.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\core\file_format\pkg.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg.dir\Release\pkg.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\core\file_format\pkg_type.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg.dir\Release\pkg_type.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\core\file_format\psf.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg.dir\Release\psf.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\core\crypto\crypto.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg.dir\Release\crypto.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\io_file.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg.dir\Release\io_file.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\assert.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg.dir\Release\assert.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\error.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg.dir\Release\error.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\path_util.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg.dir\Release\path_util.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\string_util.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg.dir\Release\string_util.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\logging\backend.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg.dir\Release\backend.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg_autogen\mocs_compilation_Release.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg.dir\Release\mocs_compilation_Release.obj

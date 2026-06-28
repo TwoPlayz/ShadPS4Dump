@@ -5,7 +5,9 @@
 
 #include <array>
 #include <filesystem>
+#include <functional>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <vector>
 #include "common/endian.h"
@@ -103,9 +105,14 @@ public:
     ~PKG();
 
     bool Open(const std::filesystem::path& filepath, std::string& failreason);
+    void SetPasscode(std::string passcode);
     void ExtractFiles(const int index);
     bool Extract(const std::filesystem::path& filepath, const std::filesystem::path& extract,
                  std::string& failreason);
+
+    using FileProgressCallback =
+        std::function<void(int file_index, int block_percent, std::string_view file_name)>;
+    void SetFileProgressCallback(FileProgressCallback callback);
 
     std::vector<u8> sfo;
 
@@ -162,6 +169,7 @@ private:
     std::array<u8, 32> ivKey;
     std::array<u8, 256> imgKey;
     std::array<u8, 32> ekpfsKey;
+    std::string passcode_;
     std::array<u8, 16> dataKey;
     std::array<u8, 16> tweakKey;
     std::vector<u8> decNp;
@@ -169,4 +177,5 @@ private:
     std::filesystem::path pkgpath;
     std::filesystem::path current_dir;
     std::filesystem::path extract_path;
+    FileProgressCallback file_progress_callback_;
 };

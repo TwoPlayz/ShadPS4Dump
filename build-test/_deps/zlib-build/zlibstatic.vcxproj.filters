@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic_autogen\mocs_compilation_Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\adler32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\compress.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\crc32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\deflate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\gzclose.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\gzlib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\gzread.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\gzwrite.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inflate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\infback.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inftrees.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inffast.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\trees.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\uncompr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\zutil.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic_autogen\mocs_compilation_Release.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zconf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\zlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\crc32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\deflate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\gzguts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inffast.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inffixed.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inflate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inftrees.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\trees.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\zutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{24B67393-0E5D-3B37-9E76-9E7B84A4F3B7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A40B30C1-3F33-3B98-B928-EEB8AE0CD1E6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -39,6 +39,10 @@ public:
                          std::span<const CryptoPP::byte, 16> seed,
                          std::span<CryptoPP::byte, 16> dataKey,
                          std::span<CryptoPP::byte, 16> tweakKey);
+    std::array<u8, 32> ComputeDerivedKey(std::string_view content_id, std::string_view passcode,
+                                         u32 index);
+    bool CheckDerivedKeyDigest(std::span<const u8, 32> derived_key,
+                               std::span<const u8, 32> expected_digest);
     void decryptPFS(std::span<const CryptoPP::byte, 16> dataKey,
                     std::span<const CryptoPP::byte, 16> tweakKey, std::span<const u8> src_image,
                     std::span<CryptoPP::byte> dst_image, u64 sector);

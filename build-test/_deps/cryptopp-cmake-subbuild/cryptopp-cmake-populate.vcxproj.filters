@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\cryptopp-cmake-subbuild\CMakeFiles\c7ff9405ba498f53267422fed7d1c695\cryptopp-cmake-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\cryptopp-cmake-subbuild\CMakeFiles\c7ff9405ba498f53267422fed7d1c695\cryptopp-cmake-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\cryptopp-cmake-subbuild\CMakeFiles\c7ff9405ba498f53267422fed7d1c695\cryptopp-cmake-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\cryptopp-cmake-subbuild\CMakeFiles\c7ff9405ba498f53267422fed7d1c695\cryptopp-cmake-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\cryptopp-cmake-subbuild\CMakeFiles\c7ff9405ba498f53267422fed7d1c695\cryptopp-cmake-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\cryptopp-cmake-subbuild\CMakeFiles\c7ff9405ba498f53267422fed7d1c695\cryptopp-cmake-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\cryptopp-cmake-subbuild\CMakeFiles\c7ff9405ba498f53267422fed7d1c695\cryptopp-cmake-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\cryptopp-cmake-subbuild\CMakeFiles\c7ff9405ba498f53267422fed7d1c695\cryptopp-cmake-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\cryptopp-cmake-subbuild\CMakeFiles\81067e98383c1580441fde07b4dea822\cryptopp-cmake-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\cryptopp-cmake-subbuild\CMakeFiles\9e3eb82460fccca8f3293dd817212f87\cryptopp-cmake-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\cryptopp-cmake-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\cryptopp-cmake-subbuild\CMakeFiles\cryptopp-cmake-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E4189304-8E4F-352B-AB49-783603FCC8BE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

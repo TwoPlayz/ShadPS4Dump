@@ -8,6 +8,7 @@
 #include <QLineEdit>
 #include <QListWidget>
 #include <QMainWindow>
+#include <QMessageBox>
 #include <QMetaObject>
 #include <QPushButton>
 #include <QThread>
@@ -15,6 +16,7 @@
 #include <QWidget>
 #include <thread>
 
+#include "install/pkg_router.h"
 #include "orbispatches/orbispatches_client.h"
 #include "orbispatches/patch_install_dialog.h"
 
@@ -153,6 +155,7 @@ private slots:
         patches_list_->clear();
         patches_.clear();
         selected_titleid_.clear();
+        selected_game_name_.clear();
 
         if (row < 0 || row >= static_cast<int>(games_.size())) {
             SetBusy(false, QStringLiteral("Select a game to load patch versions."));
@@ -161,6 +164,7 @@ private slots:
 
         const auto& game = games_[static_cast<size_t>(row)];
         selected_titleid_ = game.titleid;
+        selected_game_name_ = game.name;
         SetBusy(true, QStringLiteral("Loading patches for %1...").arg(ToQString(game.titleid)));
 
         std::thread([this, titleid = game.titleid]() {
@@ -218,7 +222,32 @@ private slots:
         }
 
         const auto& patch = patches_[static_cast<size_t>(row)];
-        PatchInstall::Run(patch, selected_titleid_, parent_hwnd_, this);
+        bool download_only = false;
+
+        if (!PkgRouter::IsBaseGameInstalled(selected_titleid_)) {
+            QMessageBox box(this);
+            box.setIcon(QMessageBox::Warning);
+            box.setWindowTitle(QStringLiteral("Base Game Required"));
+            box.setText(QStringLiteral("The base game for %1 is not installed.")
+                            .arg(ToQString(selected_titleid_)));
+            box.setInformativeText(
+                QStringLiteral("Patch PKGs need the base game installed first.\n\n"
+                               "Choose Download Only to save the patch files for later, or Cancel."));
+            auto* download_button = box.addButton(QStringLiteral("Download Only"),
+                                                  QMessageBox::AcceptRole);
+            box.addButton(QMessageBox::Cancel);
+            box.setDefaultButton(QMessageBox::Cancel);
+            box.exec();
+
+            if (box.clickedButton() != download_button) {
+                return;
+            }
+            download_only = true;
+        }
+
+        PatchInstall::Run(patch, selected_titleid_, selected_game_name_, parent_hwnd_, this,
+                          download_only);
+        accept();
     }
 
     void SetBusy(bool busy, const QString& message) {
@@ -241,6 +270,7 @@ private:
     std::vector<OrbisPatches::SearchResult> games_;
     std::vector<OrbisPatches::PatchEntry> patches_;
     std::string selected_titleid_;
+    std::string selected_game_name_;
 };
 
 } // namespace
@@ -255,7 +285,6 @@ void RunDialog(HWND parent) {
         QWidget* launcher = FindLauncherParentWidget(parent);
         auto* dialog = new PatchBrowserDialog(launcher, parent);
         dialog->setAttribute(Qt::WA_DeleteOnClose);
-        dialog->setWindowModality(Qt::ApplicationModal);
         dialog->show();
         dialog->raise();
         dialog->activateWindow();

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-subbuild\CMakeFiles\d0f4bbe3c33a5524c4cfee0918181968\toml11-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-subbuild\CMakeFiles\d0f4bbe3c33a5524c4cfee0918181968\toml11-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-subbuild\CMakeFiles\d0f4bbe3c33a5524c4cfee0918181968\toml11-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-subbuild\CMakeFiles\d0f4bbe3c33a5524c4cfee0918181968\toml11-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-subbuild\CMakeFiles\d0f4bbe3c33a5524c4cfee0918181968\toml11-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-subbuild\CMakeFiles\d0f4bbe3c33a5524c4cfee0918181968\toml11-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-subbuild\CMakeFiles\d0f4bbe3c33a5524c4cfee0918181968\toml11-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-subbuild\CMakeFiles\d0f4bbe3c33a5524c4cfee0918181968\toml11-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-subbuild\CMakeFiles\5c77c6d53392cd5fe958f17cb0843dd6\toml11-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-subbuild\CMakeFiles\9379c4b79a263f0014e3bc40f5a3e66d\toml11-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-subbuild\CMakeFiles\toml11-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{0B234FD3-3C11-38C7-ADC4-8D1A3F994F6C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

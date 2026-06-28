@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg_autogen\mocs_compilation_Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\tools\extract_pkg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\core\loader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\core\file_format\pkg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\core\file_format\pkg_type.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\core\file_format\psf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\core\crypto\crypto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\io_file.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\assert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\error.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\path_util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\string_util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\logging\backend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\extract_pkg_autogen\mocs_compilation_Release.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A40B30C1-3F33-3B98-B928-EEB8AE0CD1E6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

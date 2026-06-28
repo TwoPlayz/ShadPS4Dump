@@ -62,12 +62,22 @@ set(PLUGIN_SOURCES
     src/hook/window_finder.cpp
     src/hook/menu_hook.cpp
     src/hook/qt_menu_hook.cpp
+    src/hook/qt_directory_hook.cpp
+    src/hook/qt_launcher_util.cpp
     src/install/pkg_installer.cpp
+    src/install/pkg_merge.cpp
+    src/install/pkg_passcode.cpp
+    src/install/pkg_install_progress_win32.cpp
+    src/install/pkg_install_dialog.cpp
     src/install/pkg_router.cpp
     src/config/shad_config.cpp
     src/orbispatches/orbispatches_client.cpp
+    src/orbispatches/orbispatches_common.cpp
+    src/orbispatches/patch_webview_download.cpp
+    src/orbispatches/patch_http_download.cpp
     src/orbispatches/patch_browser_dialog.cpp
     src/orbispatches/patch_link_fetcher.cpp
+    src/orbispatches/patch_download_panel.cpp
     src/orbispatches/patch_install_dialog.cpp
 )
 
@@ -80,7 +90,12 @@ target_include_directories(ShadPS4PkgPlugin PRIVATE
     "${zlib_BINARY_DIR}"
 )
 
-set_source_files_properties(src/orbispatches/patch_link_fetcher.cpp PROPERTIES SKIP_AUTOMOC ON)
+set_source_files_properties(
+    src/orbispatches/patch_link_fetcher.cpp
+    src/orbispatches/patch_webview_download.cpp
+    src/orbispatches/patch_http_download.cpp
+    src/orbispatches/patch_download_panel.cpp
+    PROPERTIES SKIP_AUTOMOC ON)
 
 target_compile_definitions(ShadPS4PkgPlugin PRIVATE
     NOMINMAX
@@ -119,3 +134,29 @@ if(MINGW)
 endif()
 
 install(TARGETS ShadPS4PkgPlugin RUNTIME DESTINATION .)
+
+option(SHADPS4_BUILD_EXTRACT_TOOL "Build standalone PKG extraction test tool" OFF)
+if(SHADPS4_BUILD_EXTRACT_TOOL)
+    add_executable(extract_pkg tools/extract_pkg.cpp ${PKG_SOURCES})
+    target_include_directories(extract_pkg PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/src/pkg"
+        "${CMAKE_CURRENT_SOURCE_DIR}/src"
+        "${zlib_SOURCE_DIR}"
+        "${zlib_BINARY_DIR}"
+    )
+    target_compile_definitions(extract_pkg PRIVATE
+        NOMINMAX
+        WIN32_LEAN_AND_MEAN
+        _CRT_SECURE_NO_WARNINGS
+        NTDDI_VERSION=0x0A000006
+        _WIN32_WINNT=0x0A00
+        WINVER=0x0A00
+    )
+    target_link_libraries(extract_pkg PRIVATE
+        cryptopp::cryptopp
+        zlibstatic
+    )
+    set_target_properties(extract_pkg PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/dist"
+    )
+endif()

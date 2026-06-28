@@ -1,0 +1,16 @@
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\adler32.c;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\adler32.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\compress.c;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\compress.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\crc32.c;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\crc32.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\deflate.c;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\deflate.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\gzclose.c;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\gzclose.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\gzlib.c;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\gzlib.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\gzread.c;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\gzread.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\gzwrite.c;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\gzwrite.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inflate.c;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\inflate.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\infback.c;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\infback.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inftrees.c;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\inftrees.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inffast.c;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\inffast.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\trees.c;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\trees.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\uncompr.c;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\uncompr.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\zutil.c;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\zutil.obj
+C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic_autogen\mocs_compilation_Release.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\mocs_compilation_Release.obj

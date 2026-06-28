@@ -1,0 +1,10 @@
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\CMAKEFILES\B8E9DE81621931816CBEE79EEDEAE072\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump -BC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/ShadPS4PkgPlugin.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

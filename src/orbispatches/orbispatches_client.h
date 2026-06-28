@@ -6,7 +6,7 @@
 #include <optional>
 #include <string>
 #include <vector>
-
+#include <windows.h>
 namespace OrbisPatches {
 
 struct SearchResult {
@@ -32,6 +32,8 @@ struct LoadParams {
 };
 
 using DownloadProgressFn = std::function<void(int64_t bytes_received, int64_t total_bytes)>;
+using CancelCallback = std::function<bool()>;
+using PumpEventsFn = std::function<void()>;
 
 class Client {
 public:
@@ -40,7 +42,9 @@ public:
     static std::vector<PatchEntry> LoadPatches(const std::string& titleid, const std::string& key,
                                                std::string& error);
     static bool DownloadUrl(const std::string& url, const std::filesystem::path& destination,
-                            const DownloadProgressFn& progress, std::string& error);
+                            const DownloadProgressFn& progress, std::string& error,
+                            CancelCallback should_cancel = {}, HWND parent_hwnd = nullptr,
+                            const PumpEventsFn& pump_events = {});
 };
 
 } // namespace OrbisPatches

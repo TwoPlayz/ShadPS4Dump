@@ -1,0 +1,150 @@
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\_DEPS\TOML11-SUBBUILD\CMAKEFILES\D0F4BBE3C33A5524C4CFEE0918181968\TOML11-POPULATE-MKDIR.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild/toml11-populate-prefix/tmp/toml11-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild/toml11-populate-prefix/src/toml11-populate-stamp/Debug/toml11-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\_DEPS\TOML11-SUBBUILD\CMAKEFILES\D0F4BBE3C33A5524C4CFEE0918181968\TOML11-POPULATE-DOWNLOAD.RULE
+setlocal
+cd C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild/toml11-populate-prefix/tmp/toml11-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild/toml11-populate-prefix/src/toml11-populate-stamp/Debug/toml11-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\_DEPS\TOML11-SUBBUILD\CMAKEFILES\D0F4BBE3C33A5524C4CFEE0918181968\TOML11-POPULATE-UPDATE.RULE
+setlocal
+cd C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild/toml11-populate-prefix/tmp/toml11-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\_DEPS\TOML11-SUBBUILD\CMAKEFILES\D0F4BBE3C33A5524C4CFEE0918181968\TOML11-POPULATE-PATCH.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild/toml11-populate-prefix/src/toml11-populate-stamp/Debug/toml11-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\_DEPS\TOML11-SUBBUILD\CMAKEFILES\D0F4BBE3C33A5524C4CFEE0918181968\TOML11-POPULATE-CONFIGURE.RULE
+setlocal
+cd C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild/toml11-populate-prefix/src/toml11-populate-stamp/Debug/toml11-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\_DEPS\TOML11-SUBBUILD\CMAKEFILES\D0F4BBE3C33A5524C4CFEE0918181968\TOML11-POPULATE-BUILD.RULE
+setlocal
+cd C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild/toml11-populate-prefix/src/toml11-populate-stamp/Debug/toml11-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\_DEPS\TOML11-SUBBUILD\CMAKEFILES\D0F4BBE3C33A5524C4CFEE0918181968\TOML11-POPULATE-INSTALL.RULE
+setlocal
+cd C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild/toml11-populate-prefix/src/toml11-populate-stamp/Debug/toml11-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\_DEPS\TOML11-SUBBUILD\CMAKEFILES\D0F4BBE3C33A5524C4CFEE0918181968\TOML11-POPULATE-TEST.RULE
+setlocal
+cd C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\toml11-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild/toml11-populate-prefix/src/toml11-populate-stamp/Debug/toml11-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\_DEPS\TOML11-SUBBUILD\CMAKEFILES\5C77C6D53392CD5FE958F17CB0843DD6\TOML11-POPULATE-COMPLETE.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild/CMakeFiles/Debug/toml11-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild/toml11-populate-prefix/src/toml11-populate-stamp/Debug/toml11-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\_DEPS\TOML11-SUBBUILD\CMAKEFILES\9379C4B79A263F0014E3BC40F5A3E66D\TOML11-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\JUSTINPC\DOCUMENTS\GITHUB\SHADPS4DUMP\BUILD-TEST\_DEPS\TOML11-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild -BC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild --check-stamp-file C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/toml11-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

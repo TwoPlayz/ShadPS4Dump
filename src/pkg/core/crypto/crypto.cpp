@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: Copyright 2024 shadPS4 Emulator Project
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+#include <algorithm>
 #include <array>
 
 #include "core/crypto/crypto.h"
@@ -184,6 +185,43 @@ void Crypto::PfsGenCryptoKey(std::span<const CryptoPP::byte, 32> ekpfs,
     std::copy(data_tweak_key.begin(), data_tweak_key.begin() + dataKey.size(), tweakKey.begin());
     std::copy(data_tweak_key.begin() + tweakKey.size(),
               data_tweak_key.begin() + tweakKey.size() + dataKey.size(), dataKey.begin());
+}
+
+std::array<u8, 32> Crypto::ComputeDerivedKey(std::string_view content_id, std::string_view passcode,
+                                             u32 index) {
+    std::array<u8, 96> payload{};
+    const u8 index_bytes[4] = {static_cast<u8>((index >> 24) & 0xFF), static_cast<u8>((index >> 16) & 0xFF),
+                               static_cast<u8>((index >> 8) & 0xFF), static_cast<u8>(index & 0xFF)};
+
+    CryptoPP::SHA256 sha256;
+    std::array<CryptoPP::byte, CryptoPP::SHA256::DIGESTSIZE> hash{};
+    sha256.CalculateDigest(hash.data(), index_bytes, sizeof(index_bytes));
+    std::memcpy(payload.data(), hash.data(), hash.size());
+
+    std::array<char, 48> content_buffer{};
+    const std::size_t content_length = std::min(content_id.size(), content_buffer.size());
+    std::memcpy(content_buffer.data(), content_id.data(), content_length);
+    sha256.CalculateDigest(hash.data(), reinterpret_cast<const CryptoPP::byte*>(content_buffer.data()),
+                           content_buffer.size());
+    std::memcpy(payload.data() + 32, hash.data(), hash.size());
+
+    const std::size_t passcode_length = std::min(passcode.size(), std::size_t{32});
+    std::memcpy(payload.data() + 64, passcode.data(), passcode_length);
+
+    std::array<u8, 32> derived{};
+    sha256.CalculateDigest(derived.data(), payload.data(), payload.size());
+    return derived;
+}
+
+bool Crypto::CheckDerivedKeyDigest(std::span<const u8, 32> derived_key,
+                                   std::span<const u8, 32> expected_digest) {
+    CryptoPP::SHA256 sha256;
+    std::array<u8, 32> digest{};
+    sha256.CalculateDigest(digest.data(), derived_key.data(), derived_key.size());
+    for (std::size_t i = 0; i < digest.size(); ++i) {
+        digest[i] ^= derived_key[i];
+    }
+    return std::equal(digest.begin(), digest.end(), expected_digest.begin(), expected_digest.end());
 }
 
 void Crypto::decryptPFS(std::span<const CryptoPP::byte, 16> dataKey,

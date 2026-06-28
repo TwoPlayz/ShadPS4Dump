@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin_autogen\mocs_compilation_Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\core\loader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\core\file_format\pkg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\core\file_format\pkg_type.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\core\file_format\psf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\core\crypto\crypto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\io_file.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\assert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\error.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\path_util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\string_util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\pkg\common\logging\backend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\proxy\dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\plugin_module.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\hook\window_finder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\hook\menu_hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\hook\qt_menu_hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\hook\qt_directory_hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\hook\qt_launcher_util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\install\pkg_installer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\install\pkg_merge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\install\pkg_passcode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\install\pkg_install_progress_win32.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\install\pkg_install_dialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\install\pkg_router.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\config\shad_config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\orbispatches_client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\orbispatches_common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_webview_download.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_http_download.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_browser_dialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_link_fetcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_download_panel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_install_dialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin_autogen\mocs_compilation_Release.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\nlohmann_json-src\nlohmann_json.natvis" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A40B30C1-3F33-3B98-B928-EEB8AE0CD1E6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

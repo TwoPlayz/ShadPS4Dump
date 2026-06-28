@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5E9D57A7-186D-384C-97A0-02BE716163AC}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>zlibstatic</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">zlibstatic.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">zlibstaticd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">zlibstatic.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">zlibstatic</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic_autogen\include_Debug;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Debug\</ProgramDataBaseFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic_autogen\include_Debug;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <IncludePaths>C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic_autogen\include_Debug;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump;%(IncludePaths)</IncludePaths>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic_autogen\include_Debug;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Automatic MOC for target zlibstatic</Message>
+      <Command>setlocal
+cd C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/zlib-build/CMakeFiles/zlibstatic_autogen.dir/AutogenInfo.json Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic_autogen\include_Release;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ProgramDataBaseFileName>C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic.dir\Release\</ProgramDataBaseFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic_autogen\include_Release;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <IncludePaths>C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic_autogen\include_Release;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump;%(IncludePaths)</IncludePaths>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic_autogen\include_Release;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message>Automatic MOC for target zlibstatic</Message>
+      <Command>setlocal
+cd C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/zlib-build/CMakeFiles/zlibstatic_autogen.dir/AutogenInfo.json Release
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/zlib-src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump -BC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test --check-stamp-file C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/zlib-build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\CMakeFiles\4.2.0-rc1\CMakeCCompiler.cmake;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\zconf.h.cmakein;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\zlib.pc.cmakein;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/zlib-src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump -BC:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test --check-stamp-file C:/Users/JustinPC/Documents/GitHub/ShadPS4Dump/build-test/_deps/zlib-build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\CMakeFiles\4.2.0-rc1\CMakeCCompiler.cmake;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\zconf.h.cmakein;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\zlib.pc.cmakein;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic_autogen\mocs_compilation_Debug.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\adler32.c" />
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\compress.c" />
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\crc32.c" />
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\deflate.c" />
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\gzclose.c" />
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\gzlib.c" />
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\gzread.c" />
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\gzwrite.c" />
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inflate.c" />
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\infback.c" />
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inftrees.c" />
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inffast.c" />
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\trees.c" />
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\uncompr.c" />
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\zutil.c" />
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zconf.h" />
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\zlib.h" />
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\crc32.h" />
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\deflate.h" />
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\gzguts.h" />
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inffast.h" />
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inffixed.h" />
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inflate.h" />
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\inftrees.h" />
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\trees.h" />
+    <ClInclude Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-src\zutil.h" />
+    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\_deps\zlib-build\zlibstatic_autogen\mocs_compilation_Release.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ZERO_CHECK.vcxproj">
+      <Project>{969DE23D-B64E-3B17-AEB7-D903EA8C637E}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>

@@ -25,4 +25,9 @@ OverwriteDecision ResolveInstallPath(const std::filesystem::path& pkg_file,
                                      const std::filesystem::path& addons_dir,
                                      RouteResult& out, HWND parent);
 
+// Returns true when the base game for a title ID is installed (eboot.bin present).
+bool IsBaseGameInstalled(const std::string& title_id);
+
+void ShowDeltaPkgNotSupported(HWND parent);
+
 } // namespace PkgRouter

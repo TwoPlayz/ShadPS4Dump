@@ -8,7 +8,8 @@ class QWidget;
 
 namespace PatchInstall {
 
-void Run(const OrbisPatches::PatchEntry& patch, const std::string& titleid, HWND parent_hwnd,
-         QWidget* parent_widget);
+void Run(const OrbisPatches::PatchEntry& patch, const std::string& titleid,
+         const std::string& game_name, HWND parent_hwnd, QWidget* parent_widget,
+         bool download_only = false);
 
 } // namespace PatchInstall
