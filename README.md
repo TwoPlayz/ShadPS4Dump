@@ -7,6 +7,8 @@
 
 Drop-in Windows DLL that restores **File → Install Packages (PKG)** to [shadPS4QtLauncher](https://github.com/shadps4-emu/shadps4-qtlauncher) without modifying the emulator.
 
+Also adds Orbis patch installing directly in ShadPS4. (VERY EXPERIMENTAL BACKUP GAME INSTALLS)
+
 ## Quick start
 
 1. Build `version.dll` (see [BUILD.md](BUILD.md)) or download a release artifact.
