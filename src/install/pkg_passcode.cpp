@@ -86,12 +86,10 @@ std::optional<std::string> LookupInStore(const std::string& content_id) {
 const char* RequiredErrorMessage() {
     return "This is a retail (official Sony) PKG and needs its 32-character PKG passcode to "
            "decrypt.\n\n"
-           "ORBISPatches downloads are retail patch PKGs — the passcode is not included in the "
-           "download. Use the same passcode you would enter in LibOrbisPkg PkgTool "
-           "(--passcode).\n\n"
+           "Use the same passcode you would enter in LibOrbisPkg PkgTool (--passcode).\n\n"
            "Save the passcode as passcode.txt next to the PKG, or enter it when prompted.\n\n"
            "If your installed base game is a fake/homebrew PKG dump, you need a matching fake "
-           "patch PKG instead of the official ORBISPatches download.";
+           "patch PKG.";
 }
 
 bool IsRequiredError(std::string_view error) {

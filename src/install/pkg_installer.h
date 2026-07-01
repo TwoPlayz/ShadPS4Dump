@@ -28,7 +28,6 @@ using CancelCallback = std::function<bool()>;
 
 void RunInstallDialog(HWND parent);
 void RunInstallGameDialog(HWND parent);
-void RunInstallOrbisUpdateDialog(HWND parent);
 void HandleDroppedFiles(HWND parent, HDROP drop);
 bool InstallPkgFile(HWND parent, const std::filesystem::path& pkg_file,
                     ProgressCallback progress = {}, CancelCallback should_cancel = {});

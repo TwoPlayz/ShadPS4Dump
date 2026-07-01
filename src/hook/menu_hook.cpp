@@ -5,7 +5,6 @@
 #include <string>
 
 #include "hook/qt_menu_hook.h"
-#include "hook/qt_directory_hook.h"
 #include "hook/window_finder.h"
 #include "install/pkg_installer.h"
 
@@ -14,8 +13,6 @@ namespace MenuHook {
 namespace {
 
 constexpr UINT kInstallGamePkgCommandId = 0x8F00;
-constexpr UINT kInstallOrbisUpdateCommandId = 0x8F01;
-constexpr UINT kInstallPkgMenuCommandId = 0x8F02;
 constexpr UINT_PTR kSubclassId = 1;
 
 HWND g_main_hwnd = nullptr;
@@ -82,7 +79,7 @@ static bool InstallPkgMenuItem(HWND hwnd) {
         MENUITEMINFOW mii{};
         mii.cbSize = sizeof(mii);
         mii.fMask = MIIM_ID;
-        if (GetMenuItemInfoW(file_menu, i, TRUE, &mii) && mii.wID == kInstallPkgMenuCommandId) {
+        if (GetMenuItemInfoW(file_menu, i, TRUE, &mii) && mii.wID == kInstallGamePkgCommandId) {
             return true;
         }
     }
@@ -99,18 +96,13 @@ static bool InstallPkgMenuItem(HWND hwnd) {
     separator.fState = MFS_ENABLED;
     InsertMenuItemW(file_menu, insert_before, TRUE, &separator);
 
-    HMENU install_submenu = CreatePopupMenu();
-    AppendMenuW(install_submenu, MF_STRING, kInstallGamePkgCommandId, L"Game PKG...");
-    AppendMenuW(install_submenu, MF_STRING, kInstallOrbisUpdateCommandId, L"ORBIS Update...");
-
     MENUITEMINFOW item{};
     item.cbSize = sizeof(item);
-    item.fMask = MIIM_TYPE | MIIM_ID | MIIM_STATE | MIIM_SUBMENU;
+    item.fMask = MIIM_TYPE | MIIM_ID | MIIM_STATE;
     item.fType = MFT_STRING;
     item.fState = MFS_ENABLED;
-    item.wID = kInstallPkgMenuCommandId;
-    item.hSubMenu = install_submenu;
-    item.dwTypeData = const_cast<LPWSTR>(L"Install Packages (PKG)");
+    item.wID = kInstallGamePkgCommandId;
+    item.dwTypeData = const_cast<LPWSTR>(L"Install Game PKG...");
     InsertMenuItemW(file_menu, insert_before + 1, TRUE, &item);
 
     DrawMenuBar(hwnd);
@@ -123,10 +115,6 @@ static LRESULT CALLBACK SubclassProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM 
     case WM_COMMAND:
         if (LOWORD(wparam) == kInstallGamePkgCommandId) {
             PkgInstaller::RunInstallGameDialog(hwnd);
-            return 0;
-        }
-        if (LOWORD(wparam) == kInstallOrbisUpdateCommandId) {
-            PkgInstaller::RunInstallOrbisUpdateDialog(hwnd);
             return 0;
         }
         break;
@@ -170,8 +158,6 @@ static bool InstallHooks(HWND hwnd) {
 
 static DWORD WINAPI HookThread(LPVOID) {
     for (int attempt = 0; attempt < 300; ++attempt) {
-        QtDirectoryHook::TryInstall();
-
         HWND hwnd = WindowFinder::FindLauncherWindow();
         if (hwnd) {
             if (InstallHooks(hwnd)) {

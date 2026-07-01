@@ -7,8 +7,7 @@
 - **Visual Studio 2022** (Desktop development with C++) **or** MinGW-w64 x64
 - **Qt 6.10+ Widgets (MSVC x64)** — required because QtLauncher draws menus with Qt, not Win32 `HMENU`
 - **Git** (for CMake FetchContent dependencies)
-- **Internet** on first configure (downloads Crypto++, zlib, toml11, nlohmann/json, Microsoft WebView2 SDK)
-- **Microsoft Edge WebView2 Runtime** on the machine where you run the launcher (usually already present on Windows 11)
+- **Internet** on first configure (downloads Crypto++, zlib, toml11, nlohmann/json)
 
 ### Install Qt for building (one-time)
 
@@ -45,7 +44,7 @@ Output: `build\dist\version.dll`
 
 1. Back up any existing `version.dll` in the launcher folder (there should not be one — the real DLL lives in `System32`).
 2. Copy `version.dll` next to `shadPS4QtLauncher.exe`.
-3. Start the launcher and confirm **File → Install Packages (PKG)**.
+3. Start the launcher and confirm **File → Install Game PKG...**.
 
 ## Proxy DLL selection
 
@@ -67,7 +66,7 @@ Then use `dumpbin /imports shadPS4QtLauncher.exe` to confirm which system DLL is
 | "Could not read game install directories" | Set paths in **Game → Game Install Directory** once so `config.json` exists. |
 | Launcher fails to start | Remove `version.dll`; if it starts, proxy exports may be wrong for your Windows build — report an issue. |
 | Windows Defender quarantine | Add an exclusion or build locally; proxy DLLs are commonly flagged. |
-| PKG open/extract fails | Only fake-signed/homebrew PKGs are supported. |
+| PKG open/extract fails | Only fake-signed/homebrew PKGs are supported without a retail passcode. |
 
 ## Clean rebuild
 

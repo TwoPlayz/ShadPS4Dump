@@ -57,12 +57,6 @@ static std::optional<InstallPaths> FromJson(const fs::path& path) {
         result.addons_dir = fs::path(general["addon_install_dir"].get<std::string>());
     }
 
-    if (general.contains("update_patches_install_dir") &&
-        general["update_patches_install_dir"].is_string()) {
-        result.update_patches_dir =
-            fs::path(general["update_patches_install_dir"].get<std::string>());
-    }
-
     if (result.games_dir.empty()) {
         return std::nullopt;
     }
@@ -107,10 +101,6 @@ static std::optional<InstallPaths> FromToml(const fs::path& path) {
                 result.addons_dir =
                     fs::path(toml::get<std::string>(general.at("addon_install_dir")));
             }
-            if (general.contains("update_patches_install_dir")) {
-                result.update_patches_dir =
-                    fs::path(toml::get<std::string>(general.at("update_patches_install_dir")));
-            }
         }
 
         if (result.games_dir.empty() && root.contains("GUI")) {
@@ -121,10 +111,6 @@ static std::optional<InstallPaths> FromToml(const fs::path& path) {
             }
             if (gui.contains("addonInstallDir")) {
                 result.addons_dir = fs::path(toml::get<std::string>(gui.at("addonInstallDir")));
-            }
-            if (gui.contains("updatePatchesInstallDir")) {
-                result.update_patches_dir =
-                    fs::path(toml::get<std::string>(gui.at("updatePatchesInstallDir")));
             }
         }
 
@@ -153,126 +139,6 @@ std::optional<InstallPaths> LoadInstallPaths() {
         return FromToml(toml_path);
     }
     return std::nullopt;
-}
-
-fs::path DefaultUpdatePatchesDir() {
-    return GetUserConfigDir() / "update_patches";
-}
-
-static std::optional<fs::path> ReadUpdatePatchesDirFromJson(const fs::path& path) {
-    std::ifstream in(path);
-    if (!in) {
-        return std::nullopt;
-    }
-
-    nlohmann::json root;
-    try {
-        in >> root;
-    } catch (...) {
-        return std::nullopt;
-    }
-
-    if (!root.contains("General")) {
-        return std::nullopt;
-    }
-
-    const auto& general = root["General"];
-    if (!general.contains("update_patches_install_dir") ||
-        !general["update_patches_install_dir"].is_string()) {
-        return std::nullopt;
-    }
-
-    const auto value = general["update_patches_install_dir"].get<std::string>();
-    if (value.empty()) {
-        return std::nullopt;
-    }
-    return fs::path(value);
-}
-
-static std::optional<fs::path> ReadUpdatePatchesDirFromToml(const fs::path& path) {
-    try {
-        std::ifstream ifs(path);
-        const auto root = toml::parse(ifs, path.string());
-
-        if (root.contains("General")) {
-            const auto& general = root.at("General");
-            if (general.contains("update_patches_install_dir")) {
-                const auto value =
-                    toml::get<std::string>(general.at("update_patches_install_dir"));
-                if (!value.empty()) {
-                    return fs::path(value);
-                }
-            }
-        }
-
-        if (root.contains("GUI")) {
-            const auto& gui = root.at("GUI");
-            if (gui.contains("updatePatchesInstallDir")) {
-                const auto value = toml::get<std::string>(gui.at("updatePatchesInstallDir"));
-                if (!value.empty()) {
-                    return fs::path(value);
-                }
-            }
-        }
-    } catch (...) {
-    }
-    return std::nullopt;
-}
-
-fs::path GetUpdatePatchesDir() {
-    const auto user_dir = GetUserConfigDir();
-    const auto json_path = user_dir / "config.json";
-    if (fs::exists(json_path)) {
-        if (auto path = ReadUpdatePatchesDirFromJson(json_path)) {
-            return *path;
-        }
-    }
-
-    const auto toml_path = user_dir / "config.toml";
-    if (fs::exists(toml_path)) {
-        if (auto path = ReadUpdatePatchesDirFromToml(toml_path)) {
-            return *path;
-        }
-    }
-
-    return DefaultUpdatePatchesDir();
-}
-
-bool SaveUpdatePatchesDir(const fs::path& dir) {
-    if (dir.empty()) {
-        return false;
-    }
-
-    const auto json_path = GetUserConfigDir() / "config.json";
-    nlohmann::json root = nlohmann::json::object();
-
-    if (fs::exists(json_path)) {
-        std::ifstream in(json_path);
-        if (in) {
-            try {
-                in >> root;
-            } catch (...) {
-                root = nlohmann::json::object();
-            }
-        }
-    }
-
-    if (!root.contains("General") || !root["General"].is_object()) {
-        root["General"] = nlohmann::json::object();
-    }
-
-    root["General"]["update_patches_install_dir"] = dir.string();
-
-    std::error_code ec;
-    fs::create_directories(json_path.parent_path(), ec);
-
-    std::ofstream out(json_path);
-    if (!out) {
-        return false;
-    }
-
-    out << root.dump(2);
-    return static_cast<bool>(out);
 }
 
 } // namespace ShadConfig

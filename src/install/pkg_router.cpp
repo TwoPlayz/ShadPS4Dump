@@ -72,7 +72,7 @@ void ShowBaseGameRequired(HWND parent, bool is_dlc, const std::string& title_id)
         box.setText(title);
         box.setInformativeText(
             QStringLiteral("Install the base game first, then install this patch via "
-                           "File → Install Packages (PKG) → ORBIS Update."));
+                           "File → Install Game PKG (select all piece files if needed)."));
     }
 
     box.exec();

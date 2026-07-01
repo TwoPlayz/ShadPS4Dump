@@ -52,12 +52,6 @@
     <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\hook\qt_menu_hook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\hook\qt_directory_hook.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\hook\qt_launcher_util.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\install\pkg_installer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -77,30 +71,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\config\shad_config.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\orbispatches_client.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\orbispatches_common.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_webview_download.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_http_download.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_browser_dialog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_link_fetcher.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_download_panel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_install_dialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin_autogen\mocs_compilation_Release.cpp">

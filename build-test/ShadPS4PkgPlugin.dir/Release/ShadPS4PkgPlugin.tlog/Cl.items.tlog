@@ -14,8 +14,6 @@ C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\plugin_module.cpp;C:\Users\Ju
 C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\hook\window_finder.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\window_finder.obj
 C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\hook\menu_hook.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\menu_hook.obj
 C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\hook\qt_menu_hook.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\qt_menu_hook.obj
-C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\hook\qt_directory_hook.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\qt_directory_hook.obj
-C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\hook\qt_launcher_util.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\qt_launcher_util.obj
 C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\install\pkg_installer.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\pkg_installer.obj
 C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\install\pkg_merge.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\pkg_merge.obj
 C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\install\pkg_passcode.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\pkg_passcode.obj
@@ -23,12 +21,4 @@ C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\install\pkg_install_progress_
 C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\install\pkg_install_dialog.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\pkg_install_dialog.obj
 C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\install\pkg_router.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\pkg_router.obj
 C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\config\shad_config.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\shad_config.obj
-C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\orbispatches_client.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\orbispatches_client.obj
-C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\orbispatches_common.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\orbispatches_common.obj
-C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_webview_download.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\patch_webview_download.obj
-C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_http_download.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\patch_http_download.obj
-C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_browser_dialog.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\patch_browser_dialog.obj
-C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_link_fetcher.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\patch_link_fetcher.obj
-C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_download_panel.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\patch_download_panel.obj
-C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\src\orbispatches\patch_install_dialog.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\patch_install_dialog.obj
 C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin_autogen\mocs_compilation_Release.cpp;C:\Users\JustinPC\Documents\GitHub\ShadPS4Dump\build-test\ShadPS4PkgPlugin.dir\Release\mocs_compilation_Release.obj

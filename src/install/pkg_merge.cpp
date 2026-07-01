@@ -77,25 +77,23 @@ void SortPiecePaths(std::vector<std::filesystem::path>& piece_files) {
 const char* InvalidDownloadMessage(const std::filesystem::path& path, const std::size_t piece_count) {
     static thread_local std::string message;
     if (piece_count > 1) {
-        message = "The merged patch file is not a valid PKG. One or more downloaded pieces may be "
-                  "corrupt or incomplete.\n\nDelete the patch folder and download again from "
-                  "ORBISPatches. This patch downloads as " +
-                  std::to_string(piece_count) +
-                  " piece files that are merged automatically before install.";
+        message = "The merged PKG is not valid. One or more piece files may be corrupt or "
+                  "incomplete.\n\nSelect all piece_*.pkg files together when installing. This "
+                  "patch uses " +
+                  std::to_string(piece_count) + " piece files.";
         return message.c_str();
     }
 
     std::error_code ec;
     const auto size = std::filesystem::file_size(path, ec);
-    message = "The downloaded patch file is not a valid PKG";
+    message = "The selected file is not a valid PKG";
     if (!ec) {
         message += " (" + FormatSize(size) + ")";
         if (size == 4294967296ULL) {
-            message += ". The file stopped at exactly 4 GB, which usually means the download was "
-                       "incomplete";
+            message += ". The file stopped at exactly 4 GB (often a FAT32 drive limit)";
         }
     }
-    message += ".\n\nDelete the patch folder and download again from ORBISPatches.";
+    message += ".";
     return message.c_str();
 }
 
@@ -117,10 +115,8 @@ bool IsStandaloneDeltaPkg(const std::filesystem::path& path) {
 const char* StandaloneDeltaPkgMessage() {
     return "This file is a Delta PKG, which only applies on a real PS4 when the previous patch "
            "version is already installed.\n\n"
-           "To install updates in shadPS4, use the full patch from ORBISPatches:\n"
-           "• Game → ORBISPatches → Download & Install\n"
-           "• Or File → Install Packages (PKG) → ORBIS Update with all patch piece files "
-           "(not the separate Delta PKG download on the ORBISPatches site).";
+           "Install the full (non-delta) patch PKG instead. If the patch was split into multiple "
+           "piece_*.pkg files, select all pieces in one install.";
 }
 
 bool MergePkgPieces(const std::vector<std::filesystem::path>& pieces,
@@ -180,6 +176,13 @@ std::vector<std::filesystem::path> PrepareInstallPaths(
 
     auto sorted = piece_files;
     SortPiecePaths(sorted);
+
+    for (size_t i = 0; i < sorted.size(); ++i) {
+        if (i == 0 && !HasPkgMagic(sorted[i])) {
+            error = InvalidDownloadMessage(sorted[i], sorted.size());
+            return {};
+        }
+    }
 
     if (sorted.size() == 1) {
         if (!HasPkgMagic(sorted.front())) {

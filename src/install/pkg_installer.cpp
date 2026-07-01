@@ -5,7 +5,6 @@
 #include <filesystem>
 #include <optional>
 #include <shellapi.h>
-#include <shobjidl.h>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -69,102 +68,6 @@ std::vector<std::filesystem::path> PickPkgFiles(HWND parent) {
         files.emplace_back(std::filesystem::path(directory) / ptr);
         ptr += wcslen(ptr) + 1;
     }
-    return files;
-}
-
-std::optional<std::filesystem::path> PickFolder(HWND parent, const std::filesystem::path& initial_dir,
-                                                 const wchar_t* title) {
-    IFileOpenDialog* dialog = nullptr;
-    HRESULT hr = CoCreateInstance(CLSID_FileOpenDialog, nullptr, CLSCTX_INPROC_SERVER,
-                                  IID_PPV_ARGS(&dialog));
-    if (FAILED(hr) || !dialog) {
-        return std::nullopt;
-    }
-
-    DWORD options = 0;
-    dialog->GetOptions(&options);
-    dialog->SetOptions(options | FOS_PICKFOLDERS | FOS_FORCEFILESYSTEM | FOS_PATHMUSTEXIST);
-    if (title) {
-        dialog->SetTitle(title);
-    }
-
-    if (!initial_dir.empty()) {
-        IShellItem* folder = nullptr;
-        hr = SHCreateItemFromParsingName(initial_dir.c_str(), nullptr, IID_PPV_ARGS(&folder));
-        if (SUCCEEDED(hr) && folder) {
-            dialog->SetFolder(folder);
-            folder->Release();
-        }
-    }
-
-    hr = dialog->Show(parent);
-    if (FAILED(hr)) {
-        dialog->Release();
-        return std::nullopt;
-    }
-
-    IShellItem* result = nullptr;
-    hr = dialog->GetResult(&result);
-    dialog->Release();
-    if (FAILED(hr) || !result) {
-        return std::nullopt;
-    }
-
-    PWSTR path = nullptr;
-    hr = result->GetDisplayName(SIGDN_FILESYSPATH, &path);
-    result->Release();
-    if (FAILED(hr) || !path) {
-        return std::nullopt;
-    }
-
-    const std::filesystem::path chosen(path);
-    CoTaskMemFree(path);
-    return chosen;
-}
-
-bool IsUpdatePatchesRoot(const std::filesystem::path& selected,
-                         const std::filesystem::path& root) {
-    if (selected.empty() || root.empty()) {
-        return false;
-    }
-
-    std::error_code ec;
-    if (std::filesystem::equivalent(selected, root, ec)) {
-        return true;
-    }
-
-    const auto selected_canonical = std::filesystem::weakly_canonical(selected, ec);
-    if (ec) {
-        return false;
-    }
-    ec.clear();
-    const auto root_canonical = std::filesystem::weakly_canonical(root, ec);
-    if (ec) {
-        return false;
-    }
-    return selected_canonical == root_canonical;
-}
-
-std::vector<std::filesystem::path> CollectPkgsInFolder(const std::filesystem::path& folder) {
-    std::vector<std::filesystem::path> files;
-    std::error_code ec;
-    for (const auto& entry :
-         std::filesystem::directory_iterator(folder, ec)) {
-        if (ec) {
-            break;
-        }
-        if (!entry.is_regular_file()) {
-            continue;
-        }
-        if (_wcsicmp(entry.path().extension().c_str(), L".pkg") == 0) {
-            if (_wcsicmp(entry.path().filename().c_str(), L"merged.pkg") == 0) {
-                continue;
-            }
-            files.push_back(entry.path());
-        }
-    }
-
-    PkgMerge::SortPiecePaths(files);
     return files;
 }
 
@@ -376,45 +279,19 @@ bool InstallPkgFile(HWND parent, const std::filesystem::path& pkg_file,
 
 void RunInstallGameDialog(HWND parent) {
     auto files = PickPkgFiles(parent);
-    if (!files.empty()) {
-        PkgInstallDialog::Run(files, parent);
-    }
-}
-
-void RunInstallOrbisUpdateDialog(HWND parent) {
-    const auto patches_root = ShadConfig::GetUpdatePatchesDir();
-    std::error_code ec;
-    std::filesystem::create_directories(patches_root, ec);
-
-    const auto selected =
-        PickFolder(parent, patches_root, L"Select ORBIS patch folder to install");
-    if (!selected) {
-        return;
-    }
-
-    if (IsUpdatePatchesRoot(*selected, patches_root)) {
-        MessageBoxW(parent,
-                    L"Select a specific patch folder (for example Bloodborne v02.39 (CUSA01015)),\n"
-                    L"not the root update patches directory.",
-                    L"Install ORBIS Update", MB_OK | MB_ICONWARNING);
-        return;
-    }
-
-    const auto files = CollectPkgsInFolder(*selected);
     if (files.empty()) {
-        MessageBoxW(parent, L"No PKG files found in the selected folder.", L"Install ORBIS Update",
-                    MB_OK | MB_ICONINFORMATION);
         return;
     }
 
     std::string prepare_error;
-    const auto install_files = PkgMerge::PrepareInstallPaths(files, *selected, prepare_error);
+    const auto work_dir = files.front().parent_path();
+    const auto install_files = PkgMerge::PrepareInstallPaths(files, work_dir, prepare_error);
     if (install_files.empty()) {
         if (std::string_view(prepare_error) == PkgMerge::StandaloneDeltaPkgMessage()) {
             PkgRouter::ShowDeltaPkgNotSupported(parent);
         } else {
-            const auto message = ToWide(prepare_error);
-            MessageBoxW(parent, message.c_str(), L"Install ORBIS Update", MB_OK | MB_ICONWARNING);
+            MessageBoxW(parent, ToWide(prepare_error).c_str(), L"PKG Install",
+                        MB_OK | MB_ICONWARNING);
         }
         return;
     }

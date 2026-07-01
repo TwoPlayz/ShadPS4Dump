@@ -12,7 +12,6 @@ endif()
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(PickProxyDll)
 include(FetchCryptoPP)
-include(FetchWebView2)
 include(FindLauncherQt)
 
 set(CMAKE_AUTOMOC ON)
@@ -62,8 +61,6 @@ set(PLUGIN_SOURCES
     src/hook/window_finder.cpp
     src/hook/menu_hook.cpp
     src/hook/qt_menu_hook.cpp
-    src/hook/qt_directory_hook.cpp
-    src/hook/qt_launcher_util.cpp
     src/install/pkg_installer.cpp
     src/install/pkg_merge.cpp
     src/install/pkg_passcode.cpp
@@ -71,14 +68,6 @@ set(PLUGIN_SOURCES
     src/install/pkg_install_dialog.cpp
     src/install/pkg_router.cpp
     src/config/shad_config.cpp
-    src/orbispatches/orbispatches_client.cpp
-    src/orbispatches/orbispatches_common.cpp
-    src/orbispatches/patch_webview_download.cpp
-    src/orbispatches/patch_http_download.cpp
-    src/orbispatches/patch_browser_dialog.cpp
-    src/orbispatches/patch_link_fetcher.cpp
-    src/orbispatches/patch_download_panel.cpp
-    src/orbispatches/patch_install_dialog.cpp
 )
 
 add_library(ShadPS4PkgPlugin SHARED ${PKG_SOURCES} ${PLUGIN_SOURCES})
@@ -89,13 +78,6 @@ target_include_directories(ShadPS4PkgPlugin PRIVATE
     "${zlib_SOURCE_DIR}"
     "${zlib_BINARY_DIR}"
 )
-
-set_source_files_properties(
-    src/orbispatches/patch_link_fetcher.cpp
-    src/orbispatches/patch_webview_download.cpp
-    src/orbispatches/patch_http_download.cpp
-    src/orbispatches/patch_download_panel.cpp
-    PROPERTIES SKIP_AUTOMOC ON)
 
 target_compile_definitions(ShadPS4PkgPlugin PRIVATE
     NOMINMAX
@@ -112,14 +94,12 @@ target_link_libraries(ShadPS4PkgPlugin PRIVATE
     toml11::toml11
     nlohmann_json::nlohmann_json
     Qt6::Widgets
-    WebView2Loader
     shlwapi
     ole32
     shell32
     comctl32
     user32
     gdi32
-    winhttp
 )
 
 set_target_properties(ShadPS4PkgPlugin PROPERTIES
